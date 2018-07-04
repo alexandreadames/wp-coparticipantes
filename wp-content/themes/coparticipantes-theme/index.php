@@ -3,7 +3,7 @@
 get_header();
 pageBanner(array(
   'title' => 'Bem-vindo ao blog do coparticipantes!',
-  'subtitle' => 'Fique atualizado com as últimas notícias.'
+  'subtitle' => 'Aqui você fica atualizado com as últimas notícias.'
 ));
  ?>
 <div class="container container--narrow page-section">
