@@ -29,9 +29,9 @@ if (file_exists(dirname(__FILE__) . '/local.php')) {
 }
 else {
 	//Live database setting
-	define('DB_NAME', 'alex5278_universitydata');
-	define('DB_USER', 'alex5278_wp598');
-	define('DB_PASSWORD', 'L5L^a6RXRfC0');
+	define('DB_NAME', 'alex5278_wp-coparticipantes-db');
+	define('DB_USER', 'alex5278_wpcop');
+	define('DB_PASSWORD', 'AC~2pUF4C8$8');
 	define('DB_HOST', 'localhost');
 
 }
