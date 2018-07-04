@@ -2,7 +2,7 @@
 
 get_header();
 pageBanner(array(
-  'title' => 'Bem-vindo ao nosso blog!',
+  'title' => 'Bem-vindo ao blog do coparticipantes!',
   'subtitle' => 'Fique atualizado com as últimas notícias.'
 ));
  ?>
