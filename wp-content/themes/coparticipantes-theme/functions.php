@@ -47,7 +47,7 @@ function pageBanner($args = NULL) {
 
 
 function coparticipantes_files() {
-  //wp_enqueue_script('googleMap', '//maps.googleapis.com/maps/api/js?key=AIzaSyBh9b1rNCp6kOi5JeMHiRP4klDymBeoEWk', NULL, '1.0', true);
+  wp_enqueue_script('googleMap', '//maps.googleapis.com/maps/api/js?key=AIzaSyCzp11Ape36XhkP_32tvXun2gs6YGr3HHE', NULL, '1.0', true);
   wp_enqueue_script('main-coparticipantes-js', get_theme_file_uri('/js/scripts-bundled.js'), NULL, '1.0', true);
   wp_enqueue_style('custom-google-fonts', '//fonts.googleapis.com/css?family=Roboto+Condensed:300,300i,400,400i,700,700i|Roboto:100,300,400,400i,700,700i');
   wp_enqueue_style('font-awesome', '//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
@@ -60,16 +60,16 @@ function coparticipantes_files() {
 
 add_action('wp_enqueue_scripts', 'coparticipantes_files');
 
-/*
-function university_features() {
-  add_theme_support('title-tag');
-  add_theme_support('post-thumbnails');
-  add_image_size('professorLandscape', 400, 260, true);
-  add_image_size('professorPortrait', 480, 650, true);
+
+function coparticipantes_features() {
+  //add_theme_support('title-tag');
+  //add_theme_support('post-thumbnails');
   add_image_size('pageBanner', 1500, 350, true);
 }
 
-add_action('after_setup_theme', 'university_features');
+add_action('after_setup_theme', 'coparticipantes_features');
+
+/*
 
 function university_adjust_queries($query) {
   if (!is_admin() AND is_post_type_archive('campus') AND is_main_query()) {
@@ -98,16 +98,16 @@ function university_adjust_queries($query) {
   }
 }
 
-add_action('pre_get_posts', 'university_adjust_queries');
+add_action('pre_get_posts', 'university_adjust_queries');*/
 
-function universityMapKey($api) {
-  $api['key'] = 'AIzaSyBh9b1rNCp6kOi5JeMHiRP4klDymBeoEWk';
+function coparticipantesMapKey($api) {
+  $api['key'] = 'AIzaSyCzp11Ape36XhkP_32tvXun2gs6YGr3HHE';
   return $api;
 }
 
-add_filter('acf/fields/google_map/api', 'universityMapKey');
+add_filter('acf/fields/google_map/api', 'coparticipantesMapKey');
 
-
+/*
 // Redirect subscriber accounts out of admin and onto homepage
 add_action('admin_init', 'redirectSubsToFrontend');
 
