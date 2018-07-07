@@ -213,3 +213,60 @@ function slb_get_acf_key( $field_name ) {
   
 }
 
+/*=====CUSTOM FIELDS========*/
+
+if(function_exists("register_field_group"))
+{
+  register_field_group(array (
+    'id' => 'acf_subscription-custom-fields',
+    'title' => 'Subscription Custom Fields',
+    'fields' => array (
+      array (
+        'key' => 'field_5b3ff5fcebdc4',
+        'label' => 'event_id',
+        'name' => 'event_id',
+        'type' => 'number',
+        'default_value' => '',
+        'placeholder' => '',
+        'prepend' => '',
+        'append' => '',
+        'min' => '',
+        'max' => '',
+        'step' => '',
+      ),
+      array (
+        'key' => 'field_5b3ff60bebdc5',
+        'label' => 'user_id',
+        'name' => 'user_id',
+        'type' => 'number',
+        'default_value' => '',
+        'placeholder' => '',
+        'prepend' => '',
+        'append' => '',
+        'min' => '',
+        'max' => '',
+        'step' => '',
+      ),
+    ),
+    'location' => array (
+      array (
+        array (
+          'param' => 'post_type',
+          'operator' => '==',
+          'value' => 'subscription',
+          'order_no' => 0,
+          'group_no' => 0,
+        ),
+      ),
+    ),
+    'options' => array (
+      'position' => 'normal',
+      'layout' => 'no_box',
+      'hide_on_screen' => array (
+      ),
+    ),
+    'menu_order' => 0,
+  ));
+}
+
+
