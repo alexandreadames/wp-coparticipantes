@@ -20,6 +20,25 @@ function coparticipantes_post_types() {
     'menu_icon' => 'dashicons-calendar'
   ));
 
+  // Subscription Post type
+  register_post_type('subscription', array(
+    //'capability_type' => 'event',
+    //'map_meta_cap' => true,
+    'supports' => array('title'),
+    'rewrite' => array('slug' => 'subscriptions'),
+    'has_archive' => false,
+    'public' => false,
+    'show_ui' => true,
+    'labels' => array(
+      'name' => 'Inscrições',
+      'add_new_item' => 'Add Nova Inscrição',
+      'edit_item' => 'Editar Inscrição',
+      'all_items' => 'Todas as Inscrições',
+      'singular_name' => 'Inscrição'
+    ),
+    'menu_icon' => 'dashicons-format-aside'
+  ));
+
 }
 
 add_action('init', 'coparticipantes_post_types');

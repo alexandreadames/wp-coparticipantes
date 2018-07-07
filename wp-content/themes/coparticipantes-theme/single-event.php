@@ -2,6 +2,11 @@
   
   get_header();
 
+  //Create a new subscription
+  if ( ! empty( $_POST ) ) {
+    insertSubscription($_POST);
+  }
+
   while(have_posts()) {
     the_post();
     pageBanner();
@@ -31,11 +36,30 @@
           </div>
       </div>
 
+      <hr class="section-break">
+      <h2 class="headline headline--medium">Evento Gratuito</h2>
+
+      <?php 
+
+       //Free Event
+       if (get_field('event_type') === 'free_event'){?>
+        <form action="" method="post">
+          <input type="hidden" name="user_id" value="<?php echo get_current_user_id(); ?>">
+          <input type="hidden" name="event_id" value="<?php echo get_the_ID();?>">
+          <input type="submit" class="btn btn--large btn--orange" value="Cadastre-se"/>
+        </form>
+          
+       <?php
+        }
+       //Paid Event
+       else {
+          echo "Esse evento é pago, para efetuar o cadastro é necessário pagar uma taxa";  
+       }
+
+       ?>
+
+
     </div>
-
-
-    
-
     
   <?php }
 

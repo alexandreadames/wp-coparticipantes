@@ -171,3 +171,45 @@ function makeNotePrivate($data, $postarr) {
 
 }
 */
+
+function insertSubscription($form_data = NULL) {
+
+      // add new subscription to database 
+      $subscription_id = wp_insert_post( 
+        array(
+          'post_type'=>'subscription',
+          'post_title'=>'Inscrição de '.$form_data['user_id']. ' em '.$form_data['event_id'],
+          'post_status'=>'publish',
+        ), 
+        true
+      );
+
+      // add/update custom meta data
+    update_field(slb_get_acf_key('user_id'), $form_data['user_id'], $subscription_id);
+    update_field(slb_get_acf_key('event_id'), $form_data['event_id'], $subscription_id);
+
+    echo "Inscrição efetuada com sucesso!";
+
+}
+
+//6.5
+// hint: gets the unique act field key from the field name
+function slb_get_acf_key( $field_name ) {
+  
+  $field_key = $field_name;
+  
+  switch( $field_name ) {
+    
+    case 'event_id':
+      $field_key = 'field_5b3ff5fcebdc4';
+      break;
+    case 'user_id':
+      $field_key = 'field_5b3ff60bebdc5';
+      break;
+    
+  }
+  
+  return $field_key;
+  
+}
+
