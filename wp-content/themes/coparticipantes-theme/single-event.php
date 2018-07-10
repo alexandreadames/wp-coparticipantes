@@ -40,6 +40,29 @@
       <h2 class="headline headline--medium">Evento Gratuito</h2>
 
       <?php 
+       //Verificar se o usuário já se cadastrou nesse evento
+       $userIsSubscribed = new WP_Query(array(
+            'posts_per_page' => 1,
+            'post_type' => 'subscription',
+            'meta_query' => array(
+              array(
+                'key' => 'user_id',
+                'compare' => '=',
+                'value' => get_current_user_id(),
+                'type' => 'numeric'
+              ),
+              array(
+                'key' => 'event_id',
+                'compare' => '=',
+                'value' => get_the_ID(),
+                'type' => 'numeric'
+              ),
+            )
+          ));
+ 
+       if ($userIsSubscribed->have_posts()){
+          echo "Você já está inscrito nesse evento";
+       }
 
        //Free Event
        if (get_field('event_type') === 'free_event'){?>
